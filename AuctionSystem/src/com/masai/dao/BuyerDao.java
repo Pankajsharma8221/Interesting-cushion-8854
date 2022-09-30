@@ -7,4 +7,6 @@ public interface BuyerDao {
 
 	public Buyer BuyerLogin(String username,String password)throws BuyerException;
 
+	
+	public String Addproduct(int buyerido,int serialn)throws BuyerException;
 }

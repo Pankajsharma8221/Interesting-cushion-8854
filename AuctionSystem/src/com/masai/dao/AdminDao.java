@@ -16,5 +16,6 @@ public interface AdminDao {
  
 
 	public List<Seller> ViewRegisteredSellerList() throws SellerException;
+	
 
 }

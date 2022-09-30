@@ -60,4 +60,52 @@ public class SellerDaoImpl implements SellerDao {
 		return seller;
 	}
 
+	@Override
+	public String Addproduct(int sellerid, int serialno) throws SellerException {
+	String message="Not inserted";
+		
+		try(Connection conn= DBUtil.provideConnection()) {
+		PreparedStatement ps=	conn.prepareStatement("select * from Seller where SellerId=?");
+		
+		ps.setInt(1,sellerid);
+		
+		ResultSet rs= ps.executeQuery();
+		
+		if(rs.next()) {
+			PreparedStatement ps2=	conn.prepareStatement("select * from Product where serialno=?");
+			ps2.setInt(1,serialno);
+			
+			ResultSet rs2= ps2.executeQuery();
+			
+			if(rs2.next()) {
+				PreparedStatement ps3=	conn.prepareStatement("insert into Sellerproduct values(?,?)");
+				
+				ps3.setInt(1,sellerid);
+				ps3.setInt(2, serialno);
+				
+				int x= ps3.executeUpdate();
+				
+				if(x>0) {
+				message="Seller Product Added succesfully";
+				}else {
+				throw new SellerException("Invalid Seller id");
+				
+				}
+				
+				
+			}
+		}else {
+			throw new SellerException("Invalid buyer id");
+		}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		
+		return message;
+	
+	}
+
 }

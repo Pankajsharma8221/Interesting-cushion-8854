@@ -30,6 +30,7 @@ public class InsertBuyer {
 		System.out.println("Enter the password");
 		String password=sc.next();
 		
+
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

@@ -39,7 +39,7 @@ Scanner sc=new Scanner(System.in);
 		try(Connection conn=DriverManager.getConnection(url,"root","root")) {
 			
 			
-			PreparedStatement ps=conn.prepareStatement("insert into Buyer values(?,?,?,?,?,?)");
+			PreparedStatement ps=conn.prepareStatement("insert into Seller values(?,?,?,?,?,?)");
 			ps.setInt(1, sellerId);
 			ps.setString(2, name);
 			ps.setString(3, email);
@@ -51,7 +51,7 @@ Scanner sc=new Scanner(System.in);
 			int x=ps.executeUpdate();
 			
 			if(x>0) {
-				System.out.println("Recod inserted succesfully");
+				System.out.println("Record inserted succesfully");
 			}else {
 				System.out.println("Not inserted");
 			}

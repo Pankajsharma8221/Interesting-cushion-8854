@@ -11,6 +11,9 @@ public class InsertProduct {
 
 		Scanner sc=new Scanner(System.in);
 		
+		System.out.println("Enter the serialno");
+		int serialno=sc.nextInt();
+		
 		System.out.println("Enter the productname");
 		String productname=sc.next();
 		
@@ -18,7 +21,10 @@ public class InsertProduct {
 		System.out.println("Enter the Price");
 		int price=sc.nextInt();
 		
-	
+		
+		System.out.println("Enter the Quantity");
+		int quantity=sc.nextInt();
+
 		
 		
 		try {
@@ -32,10 +38,11 @@ public class InsertProduct {
 		try(Connection conn=DriverManager.getConnection(url,"root","root")) {
 			
 			
-			PreparedStatement ps=conn.prepareStatement("insert into product values(?,?)");
-			ps.setString(1, productname);
-			ps.setInt(2, price);
-		
+			PreparedStatement ps=conn.prepareStatement("insert into product values(?,?,?,?)");
+			ps.setInt(1, serialno);
+			ps.setString(2, productname);
+			ps.setInt(3, price);
+          ps.setInt(4,quantity);		
 			
 			
 			int x=ps.executeUpdate();

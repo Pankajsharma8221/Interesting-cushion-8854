@@ -57,6 +57,54 @@ public class BuyerDaoImpl implements BuyerDao {
 		return buyer;
 	}
 
+	@Override
+	public String Addproduct(int buyerid, int serialno) throws BuyerException {
+		
+		String message="Not inserted";
+		
+		try(Connection conn= DBUtil.provideConnection()) {
+		PreparedStatement ps=	conn.prepareStatement("select * from Buyer where BuyerId=?");
+		
+		ps.setInt(1,buyerid);
+		
+		ResultSet rs= ps.executeQuery();
+		
+		if(rs.next()) {
+			PreparedStatement ps2=	conn.prepareStatement("select * from Product where serialno=?");
+			ps2.setInt(1,serialno);
+			
+			ResultSet rs2= ps2.executeQuery();
+			
+			if(rs2.next()) {
+				PreparedStatement ps3=	conn.prepareStatement("insert into Buyerproduct values(?,?)");
+				
+				ps3.setInt(1,buyerid);
+				ps3.setInt(2, serialno);
+				
+				int x= ps3.executeUpdate();
+				
+				if(x>0) {
+				message="Buyer Product Added succesfully";
+				}else {
+				throw new BuyerException("Invalid buyer id");
+				
+				}
+				
+				
+			}
+		}else {
+			throw new BuyerException("Invalid buyer id");
+		}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
+		
+		return message;
+	}
+
 	
 	
 }
