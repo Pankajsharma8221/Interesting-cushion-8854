@@ -8,7 +8,7 @@ import com.masai.dao.SellerDaoImpl;
 
 public class SellerLogin {
 
-	public static void main(String[] args) {
+	public static void main() {
 		Scanner sc=new Scanner(System.in);
 		
 		System.out.println("Enter the username");

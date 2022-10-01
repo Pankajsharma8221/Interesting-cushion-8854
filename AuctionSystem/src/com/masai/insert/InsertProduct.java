@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.util.Scanner;
 
 public class InsertProduct {
-	public static void main(String[] args) {
+	public static void main() {
 		// TODO Auto-generated method stub
 
 		Scanner sc=new Scanner(System.in);

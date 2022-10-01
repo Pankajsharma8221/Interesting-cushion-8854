@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class InsertBuyer {
 
-	public static void main(String[] args) {
+	public static void Buyer() {
 		// TODO Auto-generated method stub
 
 		Scanner sc=new Scanner(System.in);

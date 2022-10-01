@@ -8,7 +8,7 @@ import com.masai.dao.AdminDao;
 import com.masai.dao.AdminDaoImpl;
 
 public class ViewBuyer {
-public static void main(String[] args) {
+public static void main() {
 		
 		AdminDao buyer = new AdminDaoImpl();
 		
