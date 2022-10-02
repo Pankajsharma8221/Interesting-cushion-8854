@@ -51,7 +51,7 @@ Enter the address
 karnal
 Enter the password
 1211
-Student registered successfully
+Seller registered successfully
  	1. Register himself or herself as seller.
 	2. seller login.
 	3. Create list of items to sell.
@@ -112,7 +112,7 @@ Enter the address
 delhi
 Enter the password
 12911
-Student registered successfully
+Buyer registered successfully
 	1. Register himself in a buyer with a username and password (email should be the username)
 	2. Login as Buyer.
 	3. Insert product into buyer.
